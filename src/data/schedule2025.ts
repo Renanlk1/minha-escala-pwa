@@ -431,17 +431,24 @@ export const schedule2025: YearSchedule = {
   },
 };
 
+// Import 2026 schedule
+import { schedule2026 } from './schedule2026';
+
 // Get shift for a specific team on a specific date
 export function getTeamShift(team: Team, date: Date): ShiftType {
+  const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
   
   // Special case: December 26, 2025 - Team B is OFF
-  if (month === 12 && day === 26 && team === 'B') {
+  if (year === 2025 && month === 12 && day === 26 && team === 'B') {
     return 'f';
   }
   
-  const monthSchedule = schedule2025[month];
+  // Select the correct schedule based on year
+  const yearSchedule = year === 2026 ? schedule2026 : schedule2025;
+  
+  const monthSchedule = yearSchedule[month];
   if (!monthSchedule) return 'f';
   
   const daySchedule = monthSchedule[day];
