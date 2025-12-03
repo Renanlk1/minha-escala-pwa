@@ -7,6 +7,7 @@ import { DayDetailModal } from '@/components/DayDetailModal';
 import { AdjustmentModal } from '@/components/AdjustmentModal';
 import { StatsCard } from '@/components/StatsCard';
 import { SettingsModal } from '@/components/SettingsModal';
+import { PWALifecycle } from '@/components/PWALifecycle';
 import { ShiftType } from '@/data/schedule2025';
 
 const Index = () => {
@@ -144,6 +145,9 @@ const Index = () => {
       )}
 
       {/* Settings Modal */}
+      {/* PWA Lifecycle */}
+      <PWALifecycle />
+
       {showSettings && team && (
         <SettingsModal
           currentTeam={team}
