@@ -15,26 +15,28 @@
     <link rel="manifest" href="/manifest.json" />
 
     <style>
-      /* CSS Agressivo para tentar esconder o selo do Lovable */
-      /* Alvo: qualquer div fixada no canto inferior direito */
-      body > div[style*="position: fixed"][style*="bottom:"][style*="right:"],
-      [class*="lovable-badge"],
-      #lovable-badge-root {
+      /* Tenta esconder qualquer div fixa no canto inferior, independente do nome */
+      div[style*="fixed"][style*="bottom: 0"],
+      div[style*="fixed"][style*="bottom:0"],
+      iframe[id*="lovable"],
+      .lovable-badge,
+      #lovable-badge-root,
+      [class*="lovable"] {
         display: none !important;
         visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
         opacity: 0 !important;
         pointer-events: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        z-index: -99999 !important;
+        clip-path: circle(0) !important;
       }
-      
+
       /* Garante fundo preto enquanto carrega */
       body, html {
           background-color: #000000;
           margin: 0;
           padding: 0;
-          overflow: hidden; /* Trava a rolagem no iOS */
+          overflow: hidden;
       }
     </style>
 
