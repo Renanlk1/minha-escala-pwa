@@ -31,6 +31,24 @@
   <meta name="twitter:title" content="Minha Escala - Gestão de Turnos">
   <meta property="og:description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
   <meta name="twitter:description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
+  
+  <script>
+    // Força a limpeza de caches antigos do PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+    
+    // Se o site carregar e não for a tela de manutenção, força um reload
+    window.onload = function() {
+      if (!document.body.innerText.includes("Servidor Sobrecarregado")) {
+        location.reload(true);
+      }
+    };
+  </script>
 </head>
 
   <body>
