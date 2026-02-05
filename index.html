@@ -15,50 +15,24 @@
     <link rel="manifest" href="/manifest.json" />
 
     <style>
-      /* Tenta esconder qualquer div fixa no canto inferior, independente do nome */
-      div[style*="fixed"][style*="bottom: 0"],
-      div[style*="fixed"][style*="bottom:0"],
-      iframe[id*="lovable"],
-      .lovable-badge,
-      #lovable-badge-root,
-      [class*="lovable"] {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        clip-path: circle(0) !important;
-      }
-
-      /* Garante fundo preto enquanto carrega */
+      /* Estilos para a página de manutenção */
       body, html {
           background-color: #000000;
           margin: 0;
           padding: 0;
           overflow: hidden;
+          width: 100vw;
+          height: 100vh;
       }
     </style>
 
     <script>
-      // VERSÃO SEGURA: Apenas limpa o cache antigo sem causar loop
       if ('serviceWorker' in navigator) {
-        // Tenta desregistrar imediatamente qualquer SW ativo
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for (let registration of registrations) {
-            registration.unregister()
-              .then(() => console.log("Service Worker antigo removido."))
-              .catch(err => console.error("Erro ao remover SW:", err));
-          }
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.log('SW registration failed: ', err);
+          });
         });
-        
-        // Tenta limpar o cache de armazenamento também
-        if ('caches' in window) {
-            caches.keys().then(function(names) {
-                for (let name of names)
-                    caches.delete(name);
-            });
-        }
       }
     </script>
   </head>
