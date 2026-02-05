@@ -7,7 +7,7 @@
     <meta name="description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
     <meta name="author" content="Minha Escala" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Minha Escala" />
@@ -25,9 +25,10 @@
     <meta name="twitter:description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
 
     <style>
-      /* Esconde o selo "Edit with Lovable" */
+      /* CSS para esconder o selo do Lovable e manter o visual profissional */
       [class*="lovable-badge"],
       [id*="lovable-badge"],
+      .lovable-badge,
       div[style*="position: fixed"][style*="bottom: 0"] {
         display: none !important;
         visibility: hidden !important;
@@ -38,7 +39,7 @@
     </style>
 
     <script>
-      // Força a limpeza de caches antigos do PWA
+      // Força a limpeza de caches antigos do PWA para os 12 usuários
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
           for (let registration of registrations) {
@@ -47,7 +48,7 @@
         });
       }
       
-      // Se o site carregar e não for a tela de manutenção, força um reload
+      // Garante que a tela de manutenção carregue para todos
       window.onload = function() {
         if (!document.body.innerText.includes("Servidor Sobrecarregado")) {
           location.reload(true);
