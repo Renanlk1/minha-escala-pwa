@@ -6,29 +6,18 @@ const App = () => {
       justifyContent: 'center', 
       alignItems: 'center', 
       height: '100vh', 
-      backgroundColor: '#000000', 
-      color: '#ffffff',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      backgroundColor: '#1a1a1a', // Fundo cinza escuro (estilo iPhone que você curte)
+      color: '#00ff00',           // Texto verde limão para destacar o teste
+      fontFamily: 'monospace',
       textAlign: 'center',
       padding: '20px'
     }}>
-      <div style={{ fontSize: '40px', marginBottom: '20px' }}>⚙️</div>
-      <h1 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '12px' }}>
-        Servidor Sobrecarregado
-      </h1>
-      <p style={{ color: '#8e8e93', fontSize: '16px', maxWidth: '320px', lineHeight: '1.4' }}>
-        Devido ao alto volume de acessos, estamos em manutenção para expandir nossa capacidade. Voltaremos em breve com novidades.
+      <h1 style={{ fontSize: '2rem' }}>⚠️ TESTE DE DEPLOY ⚠️</h1>
+      <p style={{ color: '#fff', marginTop: '10px' }}>
+        Se você está vendo esta mensagem em verde, o GitHub sincronizou com o Lovable com sucesso.
       </p>
-      <div style={{ 
-        marginTop: '30px', 
-        padding: '8px 16px', 
-        borderRadius: '20px', 
-        backgroundColor: '#1c1c1e', 
-        fontSize: '13px', 
-        color: '#0a84ff',
-        fontWeight: '500'
-      }}>
-        Status: Manutenção Emergencial
+      <div style={{ marginTop: '20px', fontSize: '12px', color: '#888' }}>
+        ID do Commit: {Math.random().toString(36).substring(7)}
       </div>
     </div>
   );
