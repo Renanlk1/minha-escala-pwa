@@ -1,16 +1,20 @@
-import { createRoot } from "react-dom/client";
-import { registerSW } from "virtual:pwa-register";
-import App from "./App.tsx";
-import "./index.css";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-// Register service worker
-registerSW({
-  onNeedRefresh() {
-    console.log("New content available, please refresh.");
-  },
-  onOfflineReady() {
-    console.log("App ready to work offline.");
-  },
-});
-
-createRoot(document.getElementById("root")!).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <div style={{ 
+      backgroundColor: '#000', 
+      color: '#fff', 
+      height: '100vh', 
+      display: 'flex', 
+      flexDirection: 'column',
+      alignItems: 'center', 
+      justifyContent: 'center',
+      fontFamily: 'sans-serif'
+    }}>
+      <h1>Servidor em Manutenção</h1>
+      <p>Voltaremos em breve.</p>
+    </div>
+  </React.StrictMode>
+)
