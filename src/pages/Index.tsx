@@ -22,7 +22,10 @@ const Index = () => {
     hasAdjustment,
   } = useSchedule();
 
-  const [currentDate, setCurrentDate] = useState(new Date(2025, new Date().getMonth(), 1));
+  const [currentDate, setCurrentDate] = useState(() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), 1);
+  });
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [showAdjustment, setShowAdjustment] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
