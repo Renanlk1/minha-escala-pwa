@@ -1,28 +1,27 @@
-const App = () => {
-  return (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'column',
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      height: '100vh', 
-      backgroundColor: '#1a1a1a', // Fundo cinza escuro
-      color: '#00ff00',           // Texto verde limão
-      fontFamily: 'monospace',
-      textAlign: 'center',
-      padding: '20px'
-    }}>
-      <h1 style={{ fontSize: '2rem' }}>⚠️ MINHA ESCALA ⚠️</h1>
-      <p style={{ color: '#fff', marginTop: '10px' }}>
-        Sistema em manutenção programada para atualização de infraestrutura.
-      </p>
-      <div style={{ marginTop: '20px', fontSize: '12px', color: '#888' }}>
-        Versão: 2.0.0
-      </div>
-    </div>
-  );
-};
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
-export default App;
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;

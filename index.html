@@ -3,39 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
-    <title>Minha Escala - Manutenção</title>
-    <meta name="description" content="Sistema em manutenção programada para expansão de infraestrutura.">
+    <title>Minha Escala - Gestão de Turnos</title>
+    <meta name="description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
     <meta name="author" content="Minha Escala" />
-    <meta name="theme-color" content="#000000" />
-    
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Minha Escala" />
     <link rel="icon" type="image/x-icon" href="https://storage.googleapis.com/gpt-engineer-file-uploads/LMWdoAOy9Dc81cx7uobgYaiWQ022/uploads/1764802933618-Logo minha escala.png">
     <link rel="manifest" href="/manifest.json" />
 
-    <style>
-      /* Estilos para a página de manutenção */
-      body, html {
-          background-color: #000000;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          width: 100vw;
-          height: 100vh;
-      }
-    </style>
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/LMWdoAOy9Dc81cx7uobgYaiWQ022/social-images/social-1764802266007-Logo minha escala.png">
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(err => {
-            console.log('SW registration failed: ', err);
-          });
-        });
-      }
-    </script>
-  </head>
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    
+    
+  
+  
+  
+  <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/LMWdoAOy9Dc81cx7uobgYaiWQ022/social-images/social-1764802266007-Logo minha escala.png">
+  <meta property="og:title" content="Minha Escala - Gestão de Turnos">
+  <meta name="twitter:title" content="Minha Escala - Gestão de Turnos">
+  <meta property="og:description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
+  <meta name="twitter:description" content="App para gestão pessoal de turnos de trabalho. Visualize seu calendário mensal e status de trabalho ou folga.">
+</head>
 
   <body>
     <div id="root"></div>

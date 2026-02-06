@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
@@ -11,15 +12,16 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    mode === "development" && componentTagger(),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "prompt",
       includeAssets: ["favicon.ico", "logo.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png"],
       manifest: {
         name: "Minha Escala",
         short_name: "Escala",
         description: "App para gestão pessoal de turnos de trabalho",
-        theme_color: "#000000",
-        background_color: "#000000",
+        theme_color: "#1f2937",
+        background_color: "#f9fafb",
         display: "standalone",
         orientation: "portrait",
         start_url: "/",
